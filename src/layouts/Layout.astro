@@ -1,9 +1,10 @@
 ---
+import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 
 interface Props {
   title: string;
-  description:string;
+  description: string;
 }
 
 const { description, title } = Astro.props;
@@ -27,6 +28,7 @@ const { description, title } = Astro.props;
     </div>
     <Header />
     <slot />
+    <Footer />
   </body>
 </html>
 <style is:global>
@@ -36,6 +38,7 @@ const { description, title } = Astro.props;
 
   html {
     font-family: system-ui, sans-serif;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -43,5 +46,11 @@ const { description, title } = Astro.props;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 </style>
