@@ -1,51 +1,67 @@
 ---
+import NestJS from "./icons/NestJS.astro";
 import NextJS from "./icons/NextJS.astro";
 import Tailwind from "./icons/Tailwind.astro";
 
 const TAGS = {
+  NEST: {
+    name: "Nest.js",
+    class: "bg-black text-white",
+    icon: NestJS,
+    url: "https://nestjs.com/",
+  },
   NEXT: {
     name: "Next.js",
     class: "bg-black text-white",
     icon: NextJS,
+    url: "https://nextjs.org/",
   },
   TAILWIND: {
     name: "Tailwind CSS",
     class: "bg-black text-white",
     icon: Tailwind,
+    url: "https://tailwindcss.com/",
   },
 };
 const PROJECTS = [
   {
-    title: "SVGL",
-    description: "A beautiful library with SVG logos",
-    link: "#https://svgl.vercel.app/",
-    github: "https://github.com/pheralb/svgl",
-    image: "/projects/svgl.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    title: "YouDrive",
+    description: "Pagina de alquiler de autos",
+    link: "https://youdrive.vercel.app/",
+    github: "https://github.com/maccari78/PM6-grupo3",
+    image:
+      "https://media.licdn.com/dms/image/D4D22AQE87CMo2TrwkQ/feedshare-shrink_2048_1536/0/1719257280429?e=1723680000&v=beta&t=KVaEPzu4eVXnlMsveKCkObnDPPVinYfAFwC04MHqkKI",
+    tags: [TAGS.NEST, TAGS.NEXT, TAGS.TAILWIND],
   },
 ];
 ---
 
 {
-  PROJECTS.map(({ image, title, description, tags }) => (
+  PROJECTS.map(({ image, title, description, tags, link }) => (
     <article>
       <h3 class="text-2xl font-semibold mb-2">{title}</h3>
       <p class="text-lg mb-4 text-pretty">{description}</p>
       <ul class="flex gap-x-2 flex-row mb-2">
         {tags.map((tag) => (
           <li>
-            <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
-              <tag.icon class="size-3" />
-              {tag.name}
-            </span>
+            <a href={tag.url} target="_blank" rel="noopener noreferrer">
+              <span
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+              >
+                <tag.icon class="size-3" />
+                {tag.name}
+              </span>
+            </a>
           </li>
         ))}
       </ul>
-      <img
-        class="rounded shadow-2xl shadow-black"
-        src={image}
-        alt={`Captura de pantalla del proyecto ${image}`}
-      />
+      <a href={link} target="_blank" rel="noopener noreferrer">
+        <img
+          class="rounded shadow-2xl shadow-black"
+          src={image}
+          alt={`Captura de pantalla del proyecto ${image}`}
+        />
+      </a>
     </article>
   ))
 }
