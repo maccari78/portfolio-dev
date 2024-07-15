@@ -1,11 +1,14 @@
 {
-  "header": {
-    "home": "Home",
-    "experience": "Experience",
-    "projects": "Projects"
-  },
-  "footer": {
-    "rights": "All Rights Reserved."
-  },
-  "greeting": "Hello"
-}
+    "header": {
+      "home": "Home",
+      "experience": "Experience",
+      "projects": "Projects",
+      "about": "About me",
+      "contact": "Contact"
+    },
+    "footer": {
+      "rights": "All Rights Reserved.",
+      "github": "maccari78™ on Github"
+    }
+  }
+  
