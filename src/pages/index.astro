@@ -11,15 +11,12 @@ import Briefcase from "../components/icons/Briefcase.astro";
 import CodeIcon from "../components/icons/Code.astro";
 import Projects from "../components/Projects.astro";
 import { t } from "../utils/i18n";
+import { getLanguageFromUrl } from "../utils/i18n";
 
-const lang = Astro.url.searchParams.get("lang") || "es";
+const lang = getLanguageFromUrl(Astro.request.url);
 ---
 
-<Layout
-  title={t("seo.title", lang)}
-  description={t("seo.description", lang)}
-  lang={lang}
->
+<Layout title="Portfolio de Danilo Maccari - Desarrollador y Programador Web" description="Contrata a Danilo" lang={lang}>
   <main class="px-4">
     <SectionContainer class="py-40 pb-32">
       <h1 class="text-black text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">

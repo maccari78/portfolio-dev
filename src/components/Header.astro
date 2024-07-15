@@ -1,11 +1,17 @@
 ---
-import { t } from "../utils/i18n";
+import { t, getLanguageFromUrl } from "../utils/i18n";
 
 interface Props {
   lang: string;
 }
 
 const { lang } = Astro.props as Props;
+
+function changeLanguage(event: Event): void {
+  const target = event.target as HTMLSelectElement;
+  const newLang = target.value;
+  window.location.search = `?lang=${newLang}`;
+}
 ---
 
 <header
@@ -26,16 +32,3 @@ const { lang } = Astro.props as Props;
     </select>
   </nav>
 </header>
-
-<script>
-  const languageSelect = document.getElementById('language-select');
-  if (languageSelect) {
-    languageSelect.addEventListener('change', function(event) {
-      const target = event.target;
-      if (target instanceof HTMLSelectElement) {
-        const newLang = target.value;
-        window.location.href = `${window.location.pathname}?lang=${newLang}`;
-      }
-    });
-  }
-</script>
