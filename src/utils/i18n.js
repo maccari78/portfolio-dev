@@ -25,6 +25,12 @@ const translations = {
   }
 };
 
-export function t(key, lang) {
+let savedLanguage = 'es'; 
+
+if (typeof window !== 'undefined') {
+  savedLanguage = localStorage.getItem('language') || 'es';
+}
+
+export function t(key, lang = savedLanguage) {
   return translations[lang]?.[key] || key;
 }

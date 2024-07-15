@@ -8,9 +8,7 @@ interface Props {
 const { lang } = Astro.props as Props;
 ---
 
-<header
-  class="flex justify-between items-center bg-white rounded-lg shadow dark:bg-black-800 py-4 w-full xl:w-[1120px] mx-auto"
->
+<header class="flex justify-between items-center bg-white rounded-lg shadow dark:bg-black-800 py-4 w-full xl:w-[1120px] mx-auto">
   <img
     class="rounded-full size-10 mb-2 ml-6"
     src="https://avatars.githubusercontent.com/u/30017498?s=400&u=ad3e2a3e5830149a0cfed96c02cc5e649e60dde5&v=4"
@@ -28,14 +26,17 @@ const { lang } = Astro.props as Props;
 </header>
 
 <script>
-  const languageSelect = document.getElementById('language-select');
-  if (languageSelect) {
-    languageSelect.addEventListener('change', function(event) {
-      const target = event.target;
-      if (target instanceof HTMLSelectElement) {
+  if (typeof window !== 'undefined') {
+    const languageSelect = document.getElementById('language-select') as HTMLSelectElement | null;
+    if (languageSelect) {
+      languageSelect.value = new URLSearchParams(window.location.search).get('lang') || localStorage.getItem('language') || 'es';
+
+      languageSelect.addEventListener('change', function(event) {
+        const target = event.target as HTMLSelectElement;
         const newLang = target.value;
-        window.location.href = `${window.location.pathname}?lang=${newLang}`;
-      }
-    });
+        localStorage.setItem('language', newLang); 
+        window.location.href = `${window.location.pathname}?lang=${newLang}`; 
+      });
+    }
   }
 </script>
