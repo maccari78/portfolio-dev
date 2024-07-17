@@ -24,37 +24,7 @@ const { lang = 'es'} = Astro.props as Props;
   </nav>
 </header>
 
-<style>
-  .goog-te-banner-frame,
-  .goog-te-gadget-simple,
-  .goog-te-menu-value span,
-  .goog-tooltip,
-  .goog-tooltip:hover,
-  .goog-text-highlight {
-    display: none !important;
-  }
-
-  body {
-    top: 0 !important;
-  }
-
-  #google_translate_element {
-    display: none !important;
-  }
-</style>
-
-
-
 <script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'es',
-      includedLanguages: 'es,en',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      autoDisplay: false
-    }, 'google_translate_element');
-  }
-
   function changeLanguage() {
     const languageSelect = document.getElementById('language-select');
     languageSelect.addEventListener('change', function () {
