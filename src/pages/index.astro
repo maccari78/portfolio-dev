@@ -10,39 +10,38 @@ import Experience from "../components/Experience.astro";
 import Briefcase from "../components/icons/Briefcase.astro";
 import CodeIcon from "../components/icons/Code.astro";
 import Projects from "../components/Projects.astro";
-import { t } from "../utils/i18n";
-
-let lang = 'es'; 
-
-if (typeof window !== 'undefined') {
-  lang = new URLSearchParams(window.location.search).get('lang') || localStorage.getItem('language') || 'es';
-}
 ---
 
 <Layout
-  title={t("seo.title", lang)}
-  description={t("seo.description", lang)}
-  lang={lang}
+  title="Portfolio de Danilo Maccari"
+  description="Desarrollador Full Stack"
+  lang="es"
 >
   <main class="px-4">
     <SectionContainer class="py-40 pb-32">
       <h1
         class="text-black text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
       >
-        {t("home.greeting", lang)}
+        ¡Hola, soy Danilo Maccari!
         <a
           href="https://www.linkedin.com/in/maccari78/"
           target="_blank"
           rel="noopener"
           class="flex justify-center items-center"
         >
-          <Badge>{t("home.available", lang)}</Badge>
+          <Badge>Disponible para trabajar</Badge>
         </a>
       </h1>
       <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
-        <span>{t("home.role", lang)}</span>
-        <span class="opacity-80">{t("home.experience", lang)}</span>
-        {t("home.description", lang)}
+        <span>Desarrollador Fullstack</span>
+        <span class="opacity-80"
+          >con experiencia en JavaScript, TypeScript, React, NestJS, PostgreSQL
+          y TypeORM.</span
+        >
+        Apasionado por el backend, especialmente por la seguridad de las cuentas
+        (JWT, RBAC, bcrypt, passport, OAuth2) y en constante aprendizaje. Busco oportunidades
+        para contribuir con mis habilidades en proyectos innovadores y seguir creciendo
+        profesionalmente. De Bahía Blanca, Buenos Aires, Argentina
       </h2>
       <ul>
         <nav class="flex gap-4 mt-8 flex-wrap">
@@ -74,3 +73,16 @@ if (typeof window !== 'undefined') {
     </SectionContainer>
   </main>
 </Layout>
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      { pageLanguage: "es" },
+      "google_translate_element"
+    );
+  }
+</script>
+<script
+  type="text/javascript"
+  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+></script>

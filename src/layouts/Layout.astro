@@ -27,7 +27,15 @@ const { description, title, lang = 'es' } = Astro.props;
     <div class="fixed inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
     </div>
     <Header lang={lang} />
+    <div id="google_translate_element" style="position: absolute; top: 10px; right: 10px;"></div>
     <slot />
     <Footer lang={lang} />
+
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'es'}, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 </html>

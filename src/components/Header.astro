@@ -1,11 +1,9 @@
 ---
-import { t } from "../utils/i18n";
-
 interface Props {
   lang: string;
 }
 
-const { lang } = Astro.props as Props;
+const { lang = 'es'} = Astro.props as Props;
 ---
 
 <header class="flex justify-between items-center bg-white rounded-lg shadow dark:bg-black-800 py-4 w-full xl:w-[1120px] mx-auto">
@@ -15,28 +13,63 @@ const { lang } = Astro.props as Props;
     alt="maccari78 photo"
   />
   <nav class="flex flex-row gap-x-10 opacity-90 mr-6">
-    <a href="#top">{t("header.home", lang)}</a>
-    <a href="#experiencia">{t("header.experience", lang)}</a>
-    <a href="#proyectos">{t("header.projects", lang)}</a>
+    <a href="#top">Inicio</a>
+    <a href="#experiencia">Experiencia</a>
+    <a href="#proyectos">Proyectos</a>
     <select id="language-select" value={lang} class="ml-4">
-      <option value="es">ES</option>
-      <option value="en">EN</option>
+      <option value="es">Español</option>
+      <option value="en">Ingles</option>
     </select>
   </nav>
 </header>
 
-<script>
-  if (typeof window !== 'undefined') {
-    const languageSelect = document.getElementById('language-select') as HTMLSelectElement | null;
-    if (languageSelect) {
-      languageSelect.value = new URLSearchParams(window.location.search).get('lang') || localStorage.getItem('language') || 'es';
-
-      languageSelect.addEventListener('change', function(event) {
-        const target = event.target as HTMLSelectElement;
-        const newLang = target.value;
-        localStorage.setItem('language', newLang); 
-        window.location.href = `${window.location.pathname}?lang=${newLang}`; 
-      });
-    }
+<style>
+  .goog-te-banner-frame,
+  .goog-te-gadget-simple,
+  .goog-te-menu-value span,
+  .goog-tooltip,
+  .goog-tooltip:hover,
+  .goog-text-highlight {
+    display: none !important;
   }
+
+  body {
+    top: 0 !important;
+  }
+
+  #language-select {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: inherit;
+  }
+</style>
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'es',
+      includedLanguages: 'es,en',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+
+  function changeLanguage() {
+    const languageSelect = document.getElementById('language-select');
+    languageSelect.addEventListener('change', function () {
+      const language = languageSelect.value;
+      const googleTranslateElement = document.querySelector('.goog-te-combo');
+      if (googleTranslateElement) {
+        googleTranslateElement.value = language;
+        googleTranslateElement.dispatchEvent(new Event('change'));
+      }
+    });
+  }
+
+  window.addEventListener('DOMContentLoaded', function () {
+    googleTranslateElementInit();
+    changeLanguage();
+  });
 </script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
