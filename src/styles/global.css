@@ -8,35 +8,32 @@ html {
 }
 
 body {
+    top: 0 !important;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-.goog-te-combo,
-.goog-te-banner-frame,
-.goog-te-gadget-simple,
+#google_translate_element {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+.goog-te-banner-frame.skiptranslate,
+.goog-te-gadget-icon,
 .goog-te-menu-value span,
+.goog-te-gadget-simple,
+.goog-te-banner-frame,
+.goog-te-iframe,
 .goog-tooltip,
 .goog-tooltip:hover,
 .goog-text-highlight {
     display: none !important;
+    visibility: hidden !important;
 }
 
-body {
-    top: 0 !important;
-}
-
-#google_translate_element {
+.goog-te-combo {
     display: none !important;
-}
-
-#google_translate_element {
-    color: transparent;
-}
-
-#google_translate_element a {
-    display: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
