@@ -1,4 +1,5 @@
 ---
+import type LinkedIn from "./icons/LinkedIn.astro";
 import NestJS from "./icons/NestJS.astro";
 import NextJS from "./icons/NextJS.astro";
 import Tailwind from "./icons/Tailwind.astro";
@@ -26,19 +27,26 @@ const TAGS = {
 const PROJECTS = [
   {
     title: "YouDrive",
-    description: "Pagina de alquiler de autos",
+    description: "Youdrive es una web app de alquiler de autos desarrollada en colaboración con un equipo de desarrolladores. Utilizamos NestJS y TypeScript para el backend, que se conecta con una base de datos PostgreSQL a través de TypeORM. Para el frontend, utilizamos NextJS, TypeScript y Tailwind. Implementamos diversas tecnologías para mejorar la seguridad y la funcionalidad de la app, como JWT para la seguridad de usuarios, bcrypt para la encriptación de contraseñas, OAuth2 para el registro con credenciales de terceros, RBAC para la gestión de roles, UUID para la seguridad de IDs, STRIPE para la gestión de pagos, SweetAlert2 para el envío de emails, Open Street Map para la geolocalización y Open API Swagger para la documentación del backend.",
     link: "https://youdrive.vercel.app/",
     github: "https://github.com/maccari78/PM6-grupo3",
     image:
       "https://media.licdn.com/dms/image/D4D22AQE87CMo2TrwkQ/feedshare-shrink_2048_1536/0/1719257280429?e=1723680000&v=beta&t=KVaEPzu4eVXnlMsveKCkObnDPPVinYfAFwC04MHqkKI",
     tags: [TAGS.NEST, TAGS.NEXT, TAGS.TAILWIND],
   },
+  {
+    title: "ecommerce",
+    description: "NestJS ecommerce es un backend de comercio electrónico creado con NestJS y TypeScript, conectado a una base de datos PostgreSQL mediante TypeORM. Utilice seeders para la precarga de datos, JWT para la autenticación de usuarios, UUID para mayor seguridad en los IDs, Open API Swagger para la documentación y Multer, Cloudinary y buffer-to-stream para la carga de imágenes desde la nube. Los 'superAdmin' son los únicos que pueden asignar roles y ver la lista completa de órdenes, mientras que los 'admin' y 'user' tienen permisos limitados. También implemente un control de stock que depende del estado de la orden, ademas utilice Docker Compose para la contenerización de la app y la base de datos.",
+    link: "https://github.com/maccari78/PM4-maccari78/tree/master",
+    image: "https://res-console.cloudinary.com/do90vhthb/thumbnails/v1/image/upload/v1721430662/U2NyZWVuc2hvdF8yMDI0LTA3LTE5XzE4MzYzNl9qdWxoNXM=/drilldown", 
+    tags: [TAGS.NEST],
+  },
 ];
 ---
 
 {
-  PROJECTS.map(({ image, title, description, tags, link }) => (
-    <article>
+  PROJECTS.map(({ image, title, description, tags, link }, index) => (
+    <article class={index > 0 ? "mt-12" : ""}>
       <h3 class="text-2xl font-semibold mb-2">{title}</h3>
       <p class="text-lg mb-4 text-pretty">{description}</p>
       <ul class="flex gap-x-2 flex-row mb-2">
