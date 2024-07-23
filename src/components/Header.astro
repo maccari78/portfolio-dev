@@ -6,8 +6,9 @@ interface Props {
 const { lang = "es" } = Astro.props as Props;
 ---
 
-<header
-  class="flex justify-between items-center bg-white rounded-lg shadow dark:bg-black-800 py-4 w-full xl:w-[1120px] mx-auto"
+<header id="main-header"
+  class="fixed top-0 left-0 right-0 flex justify-between items-center bg-white rounded-lg 
+  shadow dark:bg-black-800 py-4 w-full xl:w-[1120px] mx-auto"
 >
   <img
     class="rounded-full size-10 mb-2 ml-6"
@@ -27,6 +28,16 @@ const { lang = "es" } = Astro.props as Props;
 </header>
 
 <script is:inline type="text/javascript">
+  const header = document.getElementById('main-header');
+  
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 0) {
+      header.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--header-bg-color');
+    } else {
+      header.style.backgroundColor = '';
+    }
+  });
+
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({pageLanguage: 'es'}, 'google_translate_element');
   }
