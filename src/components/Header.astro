@@ -6,57 +6,68 @@ interface Props {
 const { lang = "es" } = Astro.props as Props;
 ---
 
-<header id="main-header" class="fixed top-0 left-0 right-0 flex justify-between items-center bg-white rounded-lg 
-  shadow dark:bg-black-800 py-4 w-full xl:w-[1120px] mx-auto">
-  <img class="rounded-full size-10 mb-2 ml-6"
-    src="https://avatars.githubusercontent.com/u/30017498?s=400&u=ad3e2a3e5830149a0cfed96c02cc5e649e60dde5&v=4" alt="maccari78 photo"/>
-  
-  <button id="menu-toggle" class="md:hidden mr-6">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-    </svg>
-  </button>
-
-  <nav id="main-nav" class="hidden md:flex flex-col md:flex-row gap-y-4 md:gap-y-0 gap-x-10 opacity-90 mr-6 absolute md:relative top-full left-0 right-0 bg-white dark:bg-black-800 md:bg-transparent py-4 md:py-0">
-    <a href="#top">Inicio</a>
-    <a href="#experiencia">Experiencia</a>
-    <a href="#proyectos">Proyectos</a>
-    <select id="language-select" value={lang} class="ml-4">
+<header id="main-header" class="fixed top-0 left-0 right-0 flex justify-between items-center bg-white dark:bg-gray-800 rounded-lg shadow dark:shadow-gray-700 py-4 w-full xl:w-[1120px] mx-auto">
+  <img class="rounded-full size-10 mb-2 ml-6" src="https://avatars.githubusercontent.com/u/30017498?s=400&u=ad3e2a3e5830149a0cfed96c02cc5e649e60dde5&v=4"
+    alt="maccari78 photo"/>
+  <nav id="main-nav" class="hidden md:flex flex-col md:flex-row gap-y-4 md:gap-y-0 gap-x-10 opacity-90 mr-6 absolute md:relative top-full left-0 right-0 bg-white dark:bg-gray-800 md:bg-transparent py-4 md:py-0">
+    <a href="#top" class="text-gray-800 dark:text-white">Inicio</a>
+    <a href="#experiencia" class="text-gray-800 dark:text-white">Experiencia</a>
+    <a href="#proyectos" class="text-gray-800 dark:text-white">Proyectos</a>
+    <select id="language-select" value={lang} class="ml-4 bg-white dark:bg-gray-800 text-black dark:text-white border border-gray-300 dark:border-gray-600 rounded-md">
       <option value="es">Español</option>
       <option value="en">Ingles</option>
       <option value="fr">Frances</option>
     </select>
+    <button id="menu-toggle" class="md:hidden mr-6">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+    <button id="theme-toggle" class="ml-4" aria-label="Toggle Dark Mode">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+      </svg>
+    </button>
   </nav>
 </header>
 
 <script is:inline type="text/javascript">
-  const header = document.getElementById('main-header');
-  const menuToggle = document.getElementById('menu-toggle');
-  const mainNav = document.getElementById('main-nav');
-  
-  window.addEventListener('scroll', () => {
+  const header = document.getElementById("main-header");
+  const menuToggle = document.getElementById("menu-toggle");
+  const mainNav = document.getElementById("main-nav");
+
+  window.addEventListener("scroll", () => {
     if (window.scrollY > 0) {
-      header.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--header-bg-color');
+      header.style.backgroundColor = getComputedStyle(
+        document.documentElement
+      ).getPropertyValue("--header-bg-color");
     } else {
-      header.style.backgroundColor = '';
+      header.style.backgroundColor = "";
     }
   });
 
-  menuToggle.addEventListener('click', () => {
-    mainNav.classList.toggle('hidden');
+  menuToggle.addEventListener("click", () => {
+    mainNav.classList.toggle("hidden");
   });
 
-  document.addEventListener('click', (event) => {
+  document.addEventListener("click", (event) => {
     const isClickInsideNav = mainNav.contains(event.target);
     const isClickOnToggle = menuToggle.contains(event.target);
 
-    if (!isClickInsideNav && !isClickOnToggle && !mainNav.classList.contains('hidden')) {
-      mainNav.classList.add('hidden');
+    if (
+      !isClickInsideNav &&
+      !isClickOnToggle &&
+      !mainNav.classList.contains("hidden")
+    ) {
+      mainNav.classList.add("hidden");
     }
   });
 
   function googleTranslateElementInit() {
-    new google.translate.TranslateElement({pageLanguage: 'es'}, 'google_translate_element');
+    new google.translate.TranslateElement(
+      { pageLanguage: "es" },
+      "google_translate_element"
+    );
   }
 
   function changeLanguage() {
@@ -75,6 +86,37 @@ const { lang = "es" } = Astro.props as Props;
     googleTranslateElementInit();
     changeLanguage();
   });
+
+  const themeToggle = document.getElementById("theme-toggle");
+  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+  function toggleDarkTheme() {
+    document.documentElement.classList.toggle("dark");
+    localStorage.setItem(
+      "theme",
+      document.documentElement.classList.contains("dark") ? "dark" : "light"
+    );
+  }
+
+  if (
+    localStorage.getItem("theme") === "dark" ||
+    (!localStorage.getItem("theme") && prefersDarkScheme.matches)
+  ) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+
+  themeToggle.addEventListener("click", toggleDarkTheme);
+
+  function updateThemeToggleIcon() {
+    const isDark = document.documentElement.classList.contains("dark");
+    themeToggle.innerHTML = isDark
+      ? '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>'
+      : '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>';
+  }
+
+  updateThemeToggleIcon();
+  themeToggle.addEventListener("click", updateThemeToggleIcon);
 </script>
-<script is:inline type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-></script>
+<script is:inline type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

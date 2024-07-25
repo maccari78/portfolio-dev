@@ -9,7 +9,7 @@ interface Props {
   lang: string;
 }
 
-const { description, title, lang = 'es' } = Astro.props;
+const { description, title, lang = "es" } = Astro.props;
 ---
 
 <!doctype html>
@@ -22,13 +22,14 @@ const { description, title, lang = 'es' } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-
-  <body class="min-h-screen">
-    <div class="fixed inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
+  <body class="min-h-screen flex flex-col">
+    <div class="fixed inset-0 -z-10 bg-white dark:bg-[#000000]">
+      <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] dark:bg-[size:20px_20px]"></div>
     </div>
-    <Header lang={lang} />
-    <div id="google_translate_element" style="position: absolute; top: 10px; right: 10px;"></div>
-    <slot />
-    <Footer lang={lang} />
+      <Header lang={lang} />
+      <div id="google_translate_element" style="position: absolute; top: 10px; right: 10px;"></div>
+      <slot />
+      <Footer lang={lang} />
+    </div>
   </body>
 </html>
