@@ -10,7 +10,14 @@ const { lang = "es" } = Astro.props as Props;
   shadow dark:bg-black-800 py-4 w-full xl:w-[1120px] mx-auto">
   <img class="rounded-full size-10 mb-2 ml-6"
     src="https://avatars.githubusercontent.com/u/30017498?s=400&u=ad3e2a3e5830149a0cfed96c02cc5e649e60dde5&v=4" alt="maccari78 photo"/>
-  <nav class="flex flex-row gap-x-10 opacity-90 mr-6">
+  
+  <button id="menu-toggle" class="md:hidden mr-6">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+
+  <nav id="main-nav" class="hidden md:flex flex-col md:flex-row gap-y-4 md:gap-y-0 gap-x-10 opacity-90 mr-6 absolute md:relative top-full left-0 right-0 bg-white dark:bg-black-800 md:bg-transparent py-4 md:py-0">
     <a href="#top">Inicio</a>
     <a href="#experiencia">Experiencia</a>
     <a href="#proyectos">Proyectos</a>
@@ -24,12 +31,27 @@ const { lang = "es" } = Astro.props as Props;
 
 <script is:inline type="text/javascript">
   const header = document.getElementById('main-header');
+  const menuToggle = document.getElementById('menu-toggle');
+  const mainNav = document.getElementById('main-nav');
   
   window.addEventListener('scroll', () => {
     if (window.scrollY > 0) {
       header.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--header-bg-color');
     } else {
       header.style.backgroundColor = '';
+    }
+  });
+
+  menuToggle.addEventListener('click', () => {
+    mainNav.classList.toggle('hidden');
+  });
+
+  document.addEventListener('click', (event) => {
+    const isClickInsideNav = mainNav.contains(event.target);
+    const isClickOnToggle = menuToggle.contains(event.target);
+
+    if (!isClickInsideNav && !isClickOnToggle && !mainNav.classList.contains('hidden')) {
+      mainNav.classList.add('hidden');
     }
   });
 
