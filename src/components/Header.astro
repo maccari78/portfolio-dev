@@ -18,17 +18,17 @@ const { lang = "es" } = Astro.props as Props;
       <option value="en">Ingles</option>
       <option value="fr">Frances</option>
     </select>
-    <button id="menu-toggle" class="md:hidden mr-6">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </button>
     <button id="theme-toggle" class="ml-4" aria-label="Toggle Dark Mode">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
       </svg>
     </button>
   </nav>
+  <button id="menu-toggle" class="md:hidden mr-6">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+  </button>
 </header>
 
 <script is:inline type="text/javascript">
@@ -54,11 +54,7 @@ const { lang = "es" } = Astro.props as Props;
     const isClickInsideNav = mainNav.contains(event.target);
     const isClickOnToggle = menuToggle.contains(event.target);
 
-    if (
-      !isClickInsideNav &&
-      !isClickOnToggle &&
-      !mainNav.classList.contains("hidden")
-    ) {
+    if (!isClickInsideNav && !isClickOnToggle && !mainNav.classList.contains("hidden")) {
       mainNav.classList.add("hidden");
     }
   });
@@ -98,10 +94,7 @@ const { lang = "es" } = Astro.props as Props;
     );
   }
 
-  if (
-    localStorage.getItem("theme") === "dark" ||
-    (!localStorage.getItem("theme") && prefersDarkScheme.matches)
-  ) {
+  if (localStorage.getItem("theme") === "dark" || (!localStorage.getItem("theme") && prefersDarkScheme.matches)) {
     document.documentElement.classList.add("dark");
   } else {
     document.documentElement.classList.remove("dark");
