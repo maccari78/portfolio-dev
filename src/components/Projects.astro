@@ -26,6 +26,20 @@ const TAGS = {
 };
 const PROJECTS = [
   {
+    title: "eComm",
+    description: "Desarrollé un eCommerce completo para abordar la necesidad de una plataforma que permitiera gestionar productos y ventas de manera eficiente. Mi responsabilidad fue construir tanto el backend como el frontend de la plataforma. Utilicé Ruby on Rails en su 7ma versión con Hotwire, TailwindCSS, Stripe y PostgreSQL. Implementé funciones como el dashboard de administrador, carrito de compras y paginación. Logré crear una plataforma completamente funcional que permite a los administradores gestionar productos, órdenes y usuarios de manera eficiente, con gráficos visualizados a través de chart.js.",
+    link: "https://mysite-e98c.onrender.com/",
+    image: "https://res.cloudinary.com/do90vhthb/image/upload/v1727293167/my%20pics/Screenshot_2024-09-25_163849_yzg2qg.png",
+    tags: [],
+  },
+  {
+    title: "libreMercado",
+    description: "Identifiqué la necesidad de una plataforma de eCommerce moderna que permitiera a los usuarios realizar compras de manera eficiente, con un diseño responsive y autenticación segura. Mi responsabilidad fue diseñar y desarrollar tanto el frontend como el backend de la aplicación, priorizando la seguridad y la usabilidad. Utilicé Next.js para el frontend, conectado a MongoDB a través de Prisma ORM para la gestión de datos. Implementé un diseño moderno y responsive con TailwindCSS y su complemento daisyUI. Para la autenticación segura, integré Next-Auth, permitiendo a los usuarios autenticarse con credenciales de terceros. El resultado fue una plataforma de eCommerce completamente funcional, con un diseño adaptable a diferentes dispositivos y con una integración segura para la autenticación de usuarios.",
+    link: "https://libremercado.vercel.app/",
+    image: "https://res.cloudinary.com/do90vhthb/image/upload/v1725754801/my%20pics/Screenshot_2024-09-07_211002_vdlmyz.png",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
     title: "YouDrive",
     description: "Youdrive es una web app de alquiler de autos desarrollada en colaboración con un equipo de desarrolladores. Utilizamos NestJS y TypeScript para el backend, que se conecta con una base de datos PostgreSQL a través de TypeORM. Para el frontend, utilizamos NextJS, TypeScript y Tailwind. Implementamos diversas tecnologías para mejorar la seguridad y la funcionalidad de la app, como JWT para la seguridad de usuarios, bcrypt para la encriptación de contraseñas, OAuth2 para el registro con credenciales de terceros, RBAC para la gestión de roles, UUID para la seguridad de IDs, STRIPE para la gestión de pagos, SweetAlert2 para el envío de emails, Open Street Map para la geolocalización y Open API Swagger para la documentación del backend.",
     link: "https://youdrive.vercel.app/",
@@ -41,15 +55,8 @@ const PROJECTS = [
     image: "https://res.cloudinary.com/do90vhthb/image/upload/v1721677544/my%20pics/Screenshot_2024-07-22_164417_lye2lr.png", 
     tags: [TAGS.NEST],
   },
-  {
-    title: "libreMercado",
-    description: "Este es mi eCommerce creado enteramente con NextJS y Typescript, tiene autenticcaión mediante Next-Auth, esta conectado con una base de datos MongoDB mediante Prisma ORM y utiliza daisyUI como complemento de TalwindCSS",
-    link: "https://libremercado.vercel.app/",
-    image: "https://res.cloudinary.com/do90vhthb/image/upload/v1725754801/my%20pics/Screenshot_2024-09-07_211002_vdlmyz.png",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
-},
 ];
----
+--- 
 
 {
   PROJECTS.map(({ image, title, description, tags, link }, index) => (
