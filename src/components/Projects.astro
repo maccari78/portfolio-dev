@@ -1,7 +1,11 @@
 ---
 import type LinkedIn from "./icons/LinkedIn.astro";
+import MongoDB from "./icons/MongoDB.astro";
 import NestJS from "./icons/NestJS.astro";
 import NextJS from "./icons/NextJS.astro";
+import PostgreSQL from "./icons/PostgreSQL.astro";
+import RubyOnRails from "./icons/RubyOnRails.astro";
+import Stripe from "./icons/Stripe.astro";
 import Tailwind from "./icons/Tailwind.astro";
 
 const TAGS = {
@@ -23,6 +27,30 @@ const TAGS = {
     icon: Tailwind,
     url: "https://tailwindcss.com/",
   },
+  POSTGRESQL:{
+    name: "PostgreSQL",
+    class: "bg-black text-white",
+    icon: PostgreSQL, 
+    url: "https://www.postgresql.org/",
+  },
+  STRIPE:{
+    name: "Stripe",
+    class: "bg-black text-white",
+    icon: Stripe, 
+    url: "https://stripe.com/",
+  },
+  MONGODB:{
+    name: "MongoDB",
+    class: "bg-black text-white",
+    icon: MongoDB, 
+    url: "https://www.mongodb.com/",
+  },
+  RUBYONRAILS:{
+    name: "Ruby on Rails",
+    class: "bg-black text-white",
+    icon: RubyOnRails, 
+    url: "https://rubyonrails.org/",
+  },
 };
 const PROJECTS = [
   {
@@ -30,14 +58,14 @@ const PROJECTS = [
     description: "Desarrollé un eCommerce completo para abordar la necesidad de una plataforma que permitiera gestionar productos y ventas de manera eficiente. Mi responsabilidad fue construir tanto el backend como el frontend de la plataforma. Utilicé Ruby on Rails en su 7ma versión con Hotwire, TailwindCSS, Stripe y PostgreSQL. Implementé funciones como el dashboard de administrador, carrito de compras y paginación. Logré crear una plataforma completamente funcional que permite a los administradores gestionar productos, órdenes y usuarios de manera eficiente, con gráficos visualizados a través de chart.js.",
     link: "https://mysite-e98c.onrender.com/",
     image: "https://res.cloudinary.com/do90vhthb/image/upload/v1727293167/my%20pics/Screenshot_2024-09-25_163849_yzg2qg.png",
-    tags: [],
+    tags: [TAGS.RUBYONRAILS, TAGS.TAILWIND, TAGS.POSTGRESQL, TAGS.STRIPE],
   },
   {
     title: "libreMercado",
     description: "Identifiqué la necesidad de una plataforma de eCommerce moderna que permitiera a los usuarios realizar compras de manera eficiente, con un diseño responsive y autenticación segura. Mi responsabilidad fue diseñar y desarrollar tanto el frontend como el backend de la aplicación, priorizando la seguridad y la usabilidad. Utilicé Next.js para el frontend, conectado a MongoDB a través de Prisma ORM para la gestión de datos. Implementé un diseño moderno y responsive con TailwindCSS y su complemento daisyUI. Para la autenticación segura, integré Next-Auth, permitiendo a los usuarios autenticarse con credenciales de terceros. El resultado fue una plataforma de eCommerce completamente funcional, con un diseño adaptable a diferentes dispositivos y con una integración segura para la autenticación de usuarios.",
     link: "https://libremercado.vercel.app/",
     image: "https://res.cloudinary.com/do90vhthb/image/upload/v1725754801/my%20pics/Screenshot_2024-09-07_211002_vdlmyz.png",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.MONGODB, TAGS.STRIPE],
   },
   {
     title: "YouDrive",
@@ -46,14 +74,14 @@ const PROJECTS = [
     github: "https://github.com/maccari78/PM6-grupo3",
     image:
       "https://res.cloudinary.com/do90vhthb/image/upload/v1724080901/my%20pics/Screenshot_2024-08-19_121709_mijxhz.png",
-    tags: [TAGS.NEST, TAGS.NEXT, TAGS.TAILWIND],
+    tags: [TAGS.NEST, TAGS.NEXT, TAGS.TAILWIND, TAGS.POSTGRESQL, TAGS.STRIPE],
   },
   {
     title: "eCommerce",
     description: "Es un backend de comercio electrónico creado con NestJS y TypeScript, conectado a una base de datos PostgreSQL mediante TypeORM. Utilicé seeders para la precarga de datos, JWT para la autenticación de usuarios, UUID para mayor seguridad en los IDs, Open API Swagger para la documentación y Multer, buffer-to-stream y Cloudinary para la carga de imágenes desde la nube. Los 'superAdmin' son los únicos que pueden asignar roles y ver la lista completa de órdenes, mientras que los 'admin' y 'user' tienen permisos limitados. También implementé un control de stock que depende del estado de la orden, además utilicé Docker Compose para la contenerización de la aplicación y la base de datos.",
     link: "https://ecommerce-maccari78.up.railway.app/docs",
     image: "https://res.cloudinary.com/do90vhthb/image/upload/v1721677544/my%20pics/Screenshot_2024-07-22_164417_lye2lr.png", 
-    tags: [TAGS.NEST],
+    tags: [TAGS.NEST, TAGS.POSTGRESQL],
   },
 ];
 --- 
