@@ -7,6 +7,10 @@ import PostgreSQL from "./icons/PostgreSQL.astro";
 import RubyOnRails from "./icons/RubyOnRails.astro";
 import Stripe from "./icons/Stripe.astro";
 import Tailwind from "./icons/Tailwind.astro";
+import MySQL from "./icons/MySQL.astro";
+import SQLite3 from "./icons/SQLite3.astro";
+import FastAPI from "./icons/FastAPI.astro";
+import Badge from "./Badge.astro";
 
 const TAGS = {
   NEST: {
@@ -27,49 +31,73 @@ const TAGS = {
     icon: Tailwind,
     url: "https://tailwindcss.com/",
   },
-  POSTGRESQL:{
+  POSTGRESQL: {
     name: "PostgreSQL",
     class: "bg-black text-white",
-    icon: PostgreSQL, 
+    icon: PostgreSQL,
     url: "https://www.postgresql.org/",
   },
-  STRIPE:{
+  STRIPE: {
     name: "Stripe",
     class: "bg-black text-white",
-    icon: Stripe, 
+    icon: Stripe,
     url: "https://stripe.com/",
   },
-  MONGODB:{
+  MONGODB: {
     name: "MongoDB",
     class: "bg-black text-white",
-    icon: MongoDB, 
+    icon: MongoDB,
     url: "https://www.mongodb.com/",
   },
-  RUBYONRAILS:{
+  RUBYONRAILS: {
     name: "Ruby on Rails",
     class: "bg-black text-white",
-    icon: RubyOnRails, 
+    icon: RubyOnRails,
     url: "https://rubyonrails.org/",
+  },
+  MYSQL: {
+    name: "MySQL",
+    class: "bg-black text-white",
+    icon: MySQL,
+    url: "https://www.mysql.com/",
+  },
+  SQLITE3: {
+    name: "SQLite3",
+    class: "bg-black text-white",
+    icon: SQLite3,
+    url: "https://www.sqlite.org/",
+  },
+  FASTAPI: {
+    name: "FastAPI",
+    class: "bg-black text-white",
+    icon: FastAPI,
+    url: "https://fastapi.tiangolo.com/",
   },
 };
 const PROJECTS = [
   {
     title: "eComm",
-    description: "Desarrollé un eCommerce completo para abordar la necesidad de una plataforma que permitiera gestionar productos y ventas de manera eficiente. Mi responsabilidad fue construir tanto el backend como el frontend de la plataforma. Utilicé Ruby on Rails en su 7ma versión con Hotwire, TailwindCSS, Stripe y PostgreSQL. Implementé funciones como el dashboard de administrador, carrito de compras y paginación. Logré crear una plataforma completamente funcional que permite a los administradores gestionar productos, órdenes y usuarios de manera eficiente, con gráficos visualizados a través de chart.js.",
-    link: "https://mysite-e98c.onrender.com/",
-    image: "https://res.cloudinary.com/do90vhthb/image/upload/v1727293167/my%20pics/Screenshot_2024-09-25_163849_yzg2qg.png",
+    description:
+      "Desarrollé un eCommerce completo para abordar la necesidad de una plataforma que permitiera gestionar productos y ventas de manera eficiente. Mi responsabilidad fue construir tanto el backend como el frontend de la plataforma. Utilicé Ruby on Rails en su 7ma versión con Hotwire, TailwindCSS, Stripe y PostgreSQL. Implementé funciones como el dashboard de administrador, carrito de compras y paginación. Logré crear una plataforma completamente funcional que permite a los administradores gestionar productos, órdenes y usuarios de manera eficiente, con gráficos visualizados a través de chart.js.",
+    github: "https://github.com/maccari78/ecomm",
+    image:
+      "https://res.cloudinary.com/do90vhthb/image/upload/v1727293167/my%20pics/Screenshot_2024-09-25_163849_yzg2qg.png",
     tags: [TAGS.RUBYONRAILS, TAGS.TAILWIND, TAGS.POSTGRESQL, TAGS.STRIPE],
   },
   {
     title: "libreMercado",
-    description: "Identifiqué la necesidad de una plataforma de eCommerce moderna que permitiera a los usuarios realizar compras de manera eficiente, con un diseño responsive y autenticación segura. Mi responsabilidad fue diseñar y desarrollar tanto el frontend como el backend de la aplicación, priorizando la seguridad y la usabilidad. Utilicé Next.js para el frontend, conectado a MongoDB a través de Prisma ORM para la gestión de datos. Implementé un diseño moderno y responsive con TailwindCSS y su complemento daisyUI. Para la autenticación segura, integré Next-Auth, permitiendo a los usuarios autenticarse con credenciales de terceros. El resultado fue una plataforma de eCommerce completamente funcional, con un diseño adaptable a diferentes dispositivos y con una integración segura para la autenticación de usuarios.",
+    description:
+      "Identifiqué la necesidad de una plataforma de eCommerce moderna que permitiera a los usuarios realizar compras de manera eficiente, con un diseño responsive y autenticación segura. Mi responsabilidad fue diseñar y desarrollar tanto el frontend como el backend de la aplicación, priorizando la seguridad y la usabilidad. Utilicé Next.js para el frontend, conectado a MongoDB a través de Prisma ORM para la gestión de datos. Implementé un diseño moderno y responsive con TailwindCSS y su complemento daisyUI. Para la autenticación segura, integré Next-Auth, permitiendo a los usuarios autenticarse con credenciales de terceros. El resultado fue una plataforma de eCommerce completamente funcional, con un diseño adaptable a diferentes dispositivos y con una integración segura para la autenticación de usuarios.",
     link: "https://libremercado.vercel.app/",
-    image: "https://res.cloudinary.com/do90vhthb/image/upload/v1725754801/my%20pics/Screenshot_2024-09-07_211002_vdlmyz.png",
+    github: "https://github.com/maccari78/nextjs-ecommerce",
+    image:
+      "https://res.cloudinary.com/do90vhthb/image/upload/v1725754801/my%20pics/Screenshot_2024-09-07_211002_vdlmyz.png",
     tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.MONGODB],
   },
   {
     title: "YouDrive",
-    description: "Youdrive es una web app de alquiler de autos desarrollada en colaboración con un equipo de desarrolladores. Utilizamos NestJS y TypeScript para el backend, que se conecta con una base de datos PostgreSQL a través de TypeORM. Para el frontend, utilizamos NextJS, TypeScript y Tailwind. Implementamos diversas tecnologías para mejorar la seguridad y la funcionalidad de la app, como JWT para la seguridad de usuarios, bcrypt para la encriptación de contraseñas, OAuth2 para el registro con credenciales de terceros, RBAC para la gestión de roles, UUID para la seguridad de IDs, STRIPE para la gestión de pagos, SweetAlert2 para el envío de emails, Open Street Map para la geolocalización y Open API Swagger para la documentación del backend.",
+    description:
+      "Youdrive es una web app de alquiler de autos desarrollada en colaboración con un equipo de desarrolladores. Utilizamos NestJS y TypeScript para el backend, que se conecta con una base de datos PostgreSQL a través de TypeORM. Para el frontend, utilizamos NextJS, TypeScript y Tailwind. Implementamos diversas tecnologías para mejorar la seguridad y la funcionalidad de la app, como JWT para la seguridad de usuarios, bcrypt para la encriptación de contraseñas, OAuth2 para el registro con credenciales de terceros, RBAC para la gestión de roles, UUID para la seguridad de IDs, STRIPE para la gestión de pagos, SweetAlert2 para el envío de emails, Open Street Map para la geolocalización y Open API Swagger para la documentación del backend.",
     link: "https://youdrive.vercel.app/",
     github: "https://github.com/maccari78/PM6-grupo3",
     image:
@@ -78,40 +106,74 @@ const PROJECTS = [
   },
   {
     title: "eCommerce",
-    description: "Es un backend de comercio electrónico creado con NestJS y TypeScript, conectado a una base de datos PostgreSQL mediante TypeORM. Utilicé seeders para la precarga de datos, JWT para la autenticación de usuarios, UUID para mayor seguridad en los IDs, Open API Swagger para la documentación y Multer, buffer-to-stream y Cloudinary para la carga de imágenes desde la nube. Los 'superAdmin' son los únicos que pueden asignar roles y ver la lista completa de órdenes, mientras que los 'admin' y 'user' tienen permisos limitados. También implementé un control de stock que depende del estado de la orden, además utilicé Docker Compose para la contenerización de la aplicación y la base de datos.",
-    link: "https://ecommerce-maccari78.up.railway.app/docs",
-    image: "https://res.cloudinary.com/do90vhthb/image/upload/v1721677544/my%20pics/Screenshot_2024-07-22_164417_lye2lr.png", 
+    description:
+      "Es un backend de comercio electrónico creado con NestJS y TypeScript, conectado a una base de datos PostgreSQL mediante TypeORM. Utilicé seeders para la precarga de datos, JWT para la autenticación de usuarios, UUID para mayor seguridad en los IDs, Open API Swagger para la documentación y Multer, buffer-to-stream y Cloudinary para la carga de imágenes desde la nube. Los 'superAdmin' son los únicos que pueden asignar roles y ver la lista completa de órdenes, mientras que los 'admin' y 'user' tienen permisos limitados. También implementé un control de stock que depende del estado de la orden, además utilicé Docker Compose para la contenerización de la aplicación y la base de datos.",
+    github: "https://github.com/maccari78/ecommerce-maccari78",
+    image:
+      "https://res.cloudinary.com/do90vhthb/image/upload/v1721677544/my%20pics/Screenshot_2024-07-22_164417_lye2lr.png",
     tags: [TAGS.NEST, TAGS.POSTGRESQL],
   },
+  {
+    title: "FriendsApp",
+    description:
+      "Desarrollé una aplicación de gestión de amigos con Ruby on Rails y SQLite3, desplegada en Heroku. Implementé autenticación segura con Devise, permitiendo a cada usuario registrarse, iniciar sesión y gestionar su propia lista de amigos personalizada. Incluye manejo de sesiones, relaciones en la base de datos y una interfaz sencilla para agregar o eliminar amigos.",
+    github: "https://github.com/maccari78/railsfriends",
+    image:
+      "https://res.cloudinary.com/do90vhthb/image/upload/v1741730509/my%20pics/railsfriends_kbsatq.jpg",
+    tags: [TAGS.RUBYONRAILS, TAGS.SQLITE3],
+  },
 ];
---- 
+---
 
-{
-  PROJECTS.map(({ image, title, description, tags, link }, index) => (
-    <article class={index > 0 ? "mt-12" : ""}>
-      <h3 class="text-2xl font-semibold mb-2">{title}</h3>
-      <p class="text-lg mb-4 text-pretty">{description}</p>
-      <ul class="flex gap-x-2 flex-row mb-2">
-        {tags.map((tag) => (
-          <li>
-            <a href={tag.url} target="_blank" rel="noopener noreferrer">
-              <span
-                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
-              >
-                <tag.icon class="size-3" />
+<div>
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }, index) => (
+      <article class={index > 0 ? "mt-12" : ""}>
+        <h3 class="text-2xl font-semibold mb-2">{title}</h3>
+        <p class="text-lg mb-4 text-pretty">{description}</p>
+        <div class="flex flex-wrap gap-x-2 gap-y-2 items-center mb-4">
+          {tags.map((tag) => (
+            <span
+              class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+            >
+              <tag.icon class="size-3" />
+              <a href={tag.url} target="_blank" rel="noopener noreferrer">
                 {tag.name}
-              </span>
+              </a>
+            </span>
+          ))}
+          {github && (
+            <a
+              href={github}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center"
+            >
+              <Badge class="px-4 py-2 text-sm md:text-base hover:bg-blue-200 dark:hover:bg-gray-700 transition-colors">
+                Repo
+              </Badge>
             </a>
-          </li>
-        ))}
-      </ul>
-      <a href={link} target="_blank" rel="noopener noreferrer">
+          )}
+          {github && link && <span class="text-gray-500">|</span>}
+          {link && (
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center"
+            >
+              <Badge class="px-4 py-2 text-sm md:text-base hover:bg-blue-200 dark:hover:bg-gray-700 transition-colors">
+                Deploy
+              </Badge>
+            </a>
+          )}
+        </div>
         <img
           class="rounded shadow-2xl shadow-black"
           src={image}
-          alt={`Captura de pantalla del proyecto ${image}`}
+          alt={`Captura de pantalla del proyecto ${title}`}
         />
-      </a>
-    </article>
-  ))
-}
+      </article>
+    ))
+  }
+</div>

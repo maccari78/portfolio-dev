@@ -12,18 +12,34 @@ import CodeIcon from "../components/icons/Code.astro";
 import Projects from "../components/Projects.astro";
 ---
 
-<Layout title="Portfolio de Danilo Maccari" description="Desarrollador Full Stack" lang="es">
+<Layout
+  title="Portfolio de Danilo Maccari"
+  description="Desarrollador Full Stack"
+  lang="es"
+>
   <main class="px-4">
     <SectionContainer class="py-28 pb-32">
-      <h1 class="text-black dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
+      <h1
+        class="text-black dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
+      >
         ¡Hola, soy Danilo Maccari!
-        <a href="https://www.linkedin.com/in/maccari78/" target="_blank" rel="noopener" class="flex justify-center items-center">
+        <a
+          href="https://www.linkedin.com/in/maccari78/"
+          target="_blank"
+          rel="noopener"
+          class="flex justify-center items-center"
+        >
           <Badge>Disponible para trabajar</Badge>
         </a>
       </h1>
       <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
-        <span>Full Stack Developer</span> 
-        con experiencia en proyectos reales utilizando tecnologías como React, Angular, Node.js, Java, Ruby on Rails y PostgreSQL. Apasionado por la seguridad de cuentas implementando JWT, OAuth2, RBAC y Devise. He trabajado en la creación de plataformas completas de eCommerce y aplicaciones web. Enfocado en contribuir a proyectos innovadores donde pueda aplicar mis conocimientos y seguir creciendo profesionalmente.
+        <span>Full Stack Developer</span>
+        con experiencia en proyectos reales y personales usando React, Ruby on Rails,
+        Node.js, Java y bases de datos como PostgreSQL y MySQL. Trabajé 4 meses en
+        Mecantronic (ReactJS, FastAPI, AWS RDS), entregando 80+ tareas, y 1.4 años
+        como tutor/supervisor en #ArgentinaPrograma con Java y Angular. Especializado
+        en seguridad (JWT, OAuth2, Devise) y eCommerce, busco aplicar mis habilidades
+        en proyectos innovadores mientras sigo creciendo.
       </h2>
       <ul>
         <nav class="flex gap-4 mt-8 flex-wrap">
@@ -38,13 +54,26 @@ import Projects from "../components/Projects.astro";
           </SocialPill>
         </nav>
       </ul>
-    </SectionContainer>
-    <SectionContainer id="proyectos">
-      <h2 class="text-3xl font-semibold mb-6 flex gap-x-2 items-center">
-        <CodeIcon class="size-7" />
-        Proyectos
-      </h2>
-      <Projects />
+      <div class="flex gap-4 mt-6 flex-wrap justify-start">
+        <a
+          href="/cv/2025-03-11 MaccariDaniloCV ES.pdf"
+          download="2025-03-11 MaccariDaniloCV ES.pdf"
+          class="flex items-center"
+        >
+          <Badge class="px-4 py-2 text-sm md:text-base hover:bg-blue-200 dark:hover:bg-gray-700 transition-colors">
+            Descargar CV (Español)
+          </Badge>
+        </a>
+        <a
+          href="/cv/2025-03-11 MaccariDaniloCV EN.pdf"
+          download="2025-03-11 MaccariDaniloCV EN.pdf"
+          class="flex items-center"
+        >
+          <Badge class="px-4 py-2 text-sm md:text-base hover:bg-blue-200 dark:hover:bg-gray-700 transition-colors">
+            Download CV (English)
+          </Badge>
+        </a>
+      </div>
     </SectionContainer>
     <SectionContainer id="experiencia">
       <h2 class="text-3xl font-semibold mb-6 flex gap-x-2 items-center">
@@ -52,6 +81,13 @@ import Projects from "../components/Projects.astro";
         Experiencia profesional
       </h2>
       <Experience />
+    </SectionContainer>
+    <SectionContainer id="proyectos">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-2 items-center">
+        <CodeIcon class="size-7" />
+        Proyectos
+      </h2>
+      <Projects />
     </SectionContainer>
   </main>
 </Layout>
@@ -64,4 +100,8 @@ import Projects from "../components/Projects.astro";
     );
   }
 </script>
-<script is:inline type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script
+  is:inline
+  type="text/javascript"
+  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+></script>
