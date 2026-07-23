@@ -22,22 +22,40 @@ import Projects from "../components/Projects.astro";
       <h1
         class="text-black dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
       >
-        ¡Hola, soy Danilo Maccari!
+        <span data-lang="es">¡Hola, soy Danilo Maccari!</span>
+        <span data-lang="en" class="hidden">Hi, I'm Danilo Maccari!</span>
         <a
           href="https://www.linkedin.com/in/maccari78/"
           target="_blank"
           rel="noopener"
           class="flex justify-center items-center"
         >
-          <Badge>Disponible para trabajar</Badge>
+          <Badge>
+            <span data-lang="es">Disponible para trabajar</span>
+            <span data-lang="en" class="hidden">Available for work</span>
+          </Badge>
         </a>
       </h1>
       <h2 class="text-lg lg:text-xl font-semibold text-wrap max-w-[700px] mb-3">
-        Desarrollador Full Stack | Python (Django) · Ruby on Rails 8 · Next.js | Sistemas de escala gubernamental | Kubernetes / OKD | HealthTech MVP
+        <span data-lang="es">Desarrollador Full Stack | Ruby on Rails 8 · Python FastAPI · React Native | AWS · Kubernetes | Sistemas de Escala Gubernamental | HealthTech SaaS en producción</span>
+        <span data-lang="en" class="hidden">Full Stack Developer | Ruby on Rails 8 · Python FastAPI · React Native | AWS · Kubernetes | Government-Scale Systems | HealthTech SaaS in Production</span>
       </h2>
-      <p class="text-base lg:text-lg text-wrap max-w-[700px] text-gray-700 dark:text-gray-300">
-        Desarrollador Full Stack con experiencia en <span class="font-semibold">sistemas de producción críticos</span>. Fui el único desarrollador a cargo de <span class="font-semibold">IPS RUPA</span>, plataforma gubernamental provincial (Django + Next.js + PostgreSQL) con millones de registros de afiliados, empleadores y salarios. Gestioné todas las etapas: API REST, migración de frontend, adaptación a schema legacy inamovible (Adabas D → PostgreSQL), integración de +90 GB de datos con Celery y Streaming, y deploy en Kubernetes (OKD/OpenShift) coordinado con DevOps. Paralelamente desarrollé <span class="font-semibold">DocSync</span>, un SaaS de gestión de clínicas en Rails 8, React Native, Stripe y Claude API. Sólido en código limpio, seguridad y entrega continua.
-      </p>
+      <div data-lang="es" class="max-w-[700px] text-gray-700 dark:text-gray-300 space-y-4">
+        <p class="text-base lg:text-lg text-wrap">
+          Desarrollador Full Stack con experiencia en <span class="font-semibold">sistemas de producción críticos</span>. Fui el único desarrollador a cargo de <span class="font-semibold">IPS RUPA</span>, plataforma gubernamental provincial (Django + Next.js + PostgreSQL) con millones de registros de afiliados, empleadores y salarios. Gestioné todas las etapas: API REST, migración de frontend, adaptación a schema legacy inamovible (Adabas D → PostgreSQL), integración de +90 GB de datos con Celery y Streaming, y deploy en Kubernetes (OKD/OpenShift) coordinado con DevOps.
+        </p>
+        <p class="text-base lg:text-lg text-wrap">
+          Paralelamente, fundé y desarrollé <span class="font-semibold">DocSync</span>, un SaaS de gestión de clínicas médicas con arquitectura multi-tenant (Row Level Security en PostgreSQL), hoy en producción en AWS y con app mobile aprobada en Google Play. Esta misma experiencia en arquitecturas multi-tenant la apliqué también en otros proyectos freelance, transformando MVPs mono-cuenta en SaaS escalables para múltiples clientes. Sólido en código limpio, seguridad y entrega continua, con foco en llevar productos de idea a producción real.
+        </p>
+      </div>
+      <div data-lang="en" class="hidden max-w-[700px] text-gray-700 dark:text-gray-300 space-y-4">
+        <p class="text-base lg:text-lg text-wrap">
+          Full Stack Developer with experience in <span class="font-semibold">critical production systems</span>. I was the sole developer responsible for <span class="font-semibold">IPS RUPA</span>, a provincial government platform (Django + Next.js + PostgreSQL) handling millions of records for members, employers, and payroll. I managed every stage: REST API design, frontend migration, adaptation to an immovable legacy schema (Adabas D → PostgreSQL), integration of 90+ GB of production data with Celery and streaming, and deployment on Kubernetes (OKD/OpenShift) coordinated with the DevOps team.
+        </p>
+        <p class="text-base lg:text-lg text-wrap">
+          In parallel, I founded and built <span class="font-semibold">DocSync</span>, a medical clinic management SaaS with multi-tenant architecture (PostgreSQL Row Level Security), now live in production on AWS with a mobile app approved on Google Play. I've applied this same multi-tenant expertise across other freelance projects, turning single-account MVPs into scalable, multi-client SaaS products. Strong focus on clean code, security, and continuous delivery, with an emphasis on taking products from idea to real production.
+        </p>
+      </div>
       <ul>
         <nav class="flex gap-4 mt-8 flex-wrap">
           <SocialPill href="https://www.linkedin.com/in/maccari78/">
@@ -53,8 +71,8 @@ import Projects from "../components/Projects.astro";
       </ul>
       <div class="flex gap-4 mt-6 flex-wrap justify-start">
         <a
-          href="/cv/2026-03-02 MaccariDaniloCV ES.pdf"
-          download="2026-03-02 MaccariDaniloCV ES.pdf"
+          href="/cv/2026-07-23 MaccariDaniloCV ES.pdf"
+          download="2026-07-23 MaccariDaniloCV ES.pdf"
           class="flex items-center"
         >
           <Badge
@@ -64,8 +82,8 @@ import Projects from "../components/Projects.astro";
           </Badge>
         </a>
         <a
-          href="/cv/2026-03-02 MaccariDaniloCV EN.pdf"
-          download="2026-03-02 MaccariDaniloCV EN.pdf"
+          href="/cv/2026-07-23 MaccariDaniloCV EN.pdf"
+          download="2026-07-23 MaccariDaniloCV EN.pdf"
           class="flex items-center"
         >
           <Badge
@@ -79,30 +97,18 @@ import Projects from "../components/Projects.astro";
     <SectionContainer id="experiencia">
       <h2 class="text-3xl font-semibold mb-6 flex gap-x-2 items-center">
         <Briefcase class="size-7" />
-        Experiencia profesional
+        <span data-lang="es">Experiencia profesional</span>
+        <span data-lang="en" class="hidden">Professional Experience</span>
       </h2>
       <Experience />
     </SectionContainer>
     <SectionContainer id="proyectos">
       <h2 class="text-3xl font-semibold mb-6 flex gap-x-2 items-center">
         <CodeIcon class="size-7" />
-        Proyectos
+        <span data-lang="es">Proyectos</span>
+        <span data-lang="en" class="hidden">Projects</span>
       </h2>
       <Projects />
     </SectionContainer>
   </main>
 </Layout>
-
-<script is:inline type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement(
-      { pageLanguage: "es" },
-      "google_translate_element"
-    );
-  }
-</script>
-<script
-  is:inline
-  type="text/javascript"
-  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-></script>

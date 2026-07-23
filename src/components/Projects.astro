@@ -2,6 +2,7 @@
 import NestJS from "./icons/NestJS.astro";
 import NextJS from "./icons/NextJS.astro";
 import PostgreSQL from "./icons/PostgreSQL.astro";
+import ReactNative from "./icons/ReactNative.astro";
 import RubyOnRails from "./icons/RubyOnRails.astro";
 import Stripe from "./icons/Stripe.astro";
 import Tailwind from "./icons/Tailwind.astro";
@@ -44,22 +45,55 @@ const TAGS = {
     icon: RubyOnRails,
     url: "https://rubyonrails.org/",
   },
+  REACTNATIVE: {
+    name: "React Native",
+    class: "bg-black text-white",
+    icon: ReactNative,
+    url: "https://reactnative.dev/",
+  },
 };
 
 const PROJECTS = [
   {
-    title: "DocSync - MVP HealthTech",
-    description:
-      "SaaS de gestión integral de clínicas diseñado y desarrollado de extremo a extremo. CRUDs completos de Turnos, Pacientes (con Historias Clínicas y Evoluciones), Clínicas, Profesionales, Secretarias e Insumos. Acceso basado en roles (admin, profesional, secretaria, paciente) con autenticación Devise + Google OAuth. Pagos con Stripe, chat en tiempo real vía ActionCable, generación de PDFs (Prawn), emails automatizados, rate limiting y auditoría de seguridad. App móvil en React Native (Expo) con JWT + Google Sign-In, HCE y pagos Stripe nativos. FAQ Bot con Claude API (Anthropic), preparado para evolucionar a agente de IA.",
+    name: "DocSync",
+    title: {
+      es: "DocSync - SaaS HealthTech en producción",
+      en: "DocSync - HealthTech SaaS in Production",
+    },
+    description: {
+      es: [
+        "SaaS de gestión integral de clínicas médicas diseñado y desarrollado de extremo a extremo, hoy en producción en AWS con arquitectura multi-tenant (Row Level Security en PostgreSQL). CRUDs completos de Turnos, Pacientes (con Historias Clínicas y Evoluciones), Clínicas, Profesionales, Secretarias e Insumos, con roles diferenciados vía RBAC y auditoría de seguridad.",
+        "Autenticación JWT (access 15 min + refresh 7 días) con blacklist vía Solid Cache, rate limiting (Rack::Attack) y sanitización HTML. Pagos con Stripe, chat en tiempo real vía ActionCable, generación de PDFs (Prawn), emails automatizados y FAQ Bot con Claude API (Anthropic).",
+        "App móvil en React Native (Expo) con JWT + Google OAuth, HCE y pagos Stripe nativos, con aprobación de producción en Google Play.",
+      ],
+      en: [
+        "Comprehensive medical clinic management SaaS designed and built end-to-end, now live in production on AWS with multi-tenant architecture (PostgreSQL Row Level Security). Full CRUDs for Appointments, Patients (with Electronic Health Records and progress notes), Clinics, Practitioners, Front-desk Staff and Supplies, with role-based access via RBAC and security auditing.",
+        "JWT authentication (15-min access + 7-day refresh) with Solid Cache-based blacklist, rate limiting (Rack::Attack) and HTML sanitization. Stripe payments, real-time chat via ActionCable, PDF generation (Prawn), automated emails and a FAQ bot powered by the Claude API (Anthropic).",
+        "React Native (Expo) mobile app with JWT + Google OAuth, EHR access and native Stripe payments, with production approval on Google Play.",
+      ],
+    },
     github: "https://github.com/maccari78/docsync",
+    link: "https://getdocsync.app",
     image:
       "https://res.cloudinary.com/do90vhthb/image/upload/v1772283896/DocSync_Web_Mobile_1_j0zmxp.png",
-    tags: [TAGS.RUBYONRAILS, TAGS.POSTGRESQL, TAGS.STRIPE],
+    tags: [TAGS.RUBYONRAILS, TAGS.POSTGRESQL, TAGS.STRIPE, TAGS.REACTNATIVE],
   },
   {
-    title: "YouDrive",
-    description:
-      "Proyecto final del Henry Bootcamp (Certificación Full Stack), desarrollado en equipo multidisciplinario con Frontenders, Backenders, PM y PO. Web app de alquiler de autos con NestJS + TypeScript en el backend (PostgreSQL, TypeORM) y Next.js + Tailwind en el frontend. Implementamos JWT, bcrypt, OAuth2, RBAC, Stripe, geolocalización con Open Street Map y documentación con Swagger. El trabajo en equipo con metodología Agile fue tan importante como el stack técnico.",
+    name: "YouDrive",
+    title: {
+      es: "YouDrive",
+      en: "YouDrive",
+    },
+    description: {
+      es: [
+        "Proyecto final del Henry Bootcamp (Certificación Full Stack), desarrollado en equipo multidisciplinario con Frontenders, Backenders, PM y PO. Web app de alquiler de autos con NestJS + TypeScript en el backend (PostgreSQL, TypeORM) y Next.js + Tailwind en el frontend.",
+        "Implementamos JWT, bcrypt, OAuth2, RBAC, Stripe, geolocalización con Open Street Map y documentación con Swagger. El trabajo en equipo con metodología Agile fue tan importante como el stack técnico.",
+      ],
+      en: [
+        "Final project for the Henry Bootcamp (Full Stack Certification), built by a multidisciplinary team of frontend and backend developers, a PM and a PO. A car rental web app with NestJS + TypeScript on the backend (PostgreSQL, TypeORM) and Next.js + Tailwind on the frontend.",
+        "We implemented JWT, bcrypt, OAuth2, RBAC, Stripe, geolocation with Open Street Map and API documentation with Swagger. Teamwork under an Agile methodology was just as important as the tech stack.",
+      ],
+    },
     link: "https://youdrive.vercel.app/",
     github: "https://github.com/maccari78/PM6-grupo3",
     image:
@@ -71,10 +105,20 @@ const PROJECTS = [
 
 <div>
   {
-    PROJECTS.map(({ image, title, description, tags, link, github }, index) => (
+    PROJECTS.map(({ image, name, title, description, tags, link, github }, index) => (
       <article class={index > 0 ? "mt-12" : ""}>
-        <h3 class="text-2xl font-semibold mb-2">{title}</h3>
-        <p class="text-lg mb-4 text-pretty">{description}</p>
+        <h3 class="text-2xl font-semibold mb-2" data-lang="es">{title.es}</h3>
+        <h3 class="text-2xl font-semibold mb-2 hidden" data-lang="en">{title.en}</h3>
+        <div data-lang="es">
+          {description.es.map((paragraph) => (
+            <p class="text-lg mb-2 last:mb-4 text-pretty">{paragraph}</p>
+          ))}
+        </div>
+        <div data-lang="en" class="hidden">
+          {description.en.map((paragraph) => (
+            <p class="text-lg mb-2 last:mb-4 text-pretty">{paragraph}</p>
+          ))}
+        </div>
         <div class="flex flex-wrap gap-x-2 gap-y-2 items-center mb-4">
           {tags.map((tag) => (
             <span
@@ -115,7 +159,7 @@ const PROJECTS = [
         <img
           class="rounded shadow-2xl shadow-black"
           src={image}
-          alt={`Captura de pantalla del proyecto ${title}`}
+          alt={`Screenshot of the ${name} project`}
         />
       </article>
     ))

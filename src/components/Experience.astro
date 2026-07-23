@@ -2,45 +2,157 @@
 import ExperienceItem from "./ExperienceItem.astro";
 const EXPERIENCE = [
   {
-    date: "05/2025 - 12/2025 (8 meses) | Remoto",
-    title: "SOWTIC - Full Stack Developer",
-    description:
-      "Único desarrollador a cargo del sistema · Contrato remoto · Buenos Aires, Argentina. Diseñé e implementé la API REST completa (Django DRF + PostgreSQL) con RBAC multi-nivel (admin, interno, empleador), filtrado por rol, paginación eficiente sobre millones de registros y exportación masiva vía MinIO. La BD original (Adabas D) fue migrada a PostgreSQL por el equipo de DBAs con un schema fijo e inamovible: con 9 de 14 historias ya implementadas sobre BD local, adapté todo el desarrollo al schema definitivo al quedar disponible. Al incorporarse el volumen real de datos (+90 GB), implementé Celery para procesamiento asíncrono y Streaming de respuestas HTTP para garantizar estabilidad bajo carga. Migré el frontend completo de plantillas Django/Bootstrap a Next.js 14 (App Router) con Tailwind CSS, Shadcn/ui, Keycloak via next-auth y Zustand, logrando una mejora significativa en rendimiento, UX y mantenibilidad. Gestioné mi propio ambiente en OKD/OpenShift con Docker, GitLab CI/CD y ArgoCD, coordinando con DevOps y DBAs durante todo el proyecto. Entregué 14 historias de usuario + múltiples requerimientos adicionales del cliente 100% a tiempo.",
+    date: {
+      es: "03/2025 - Presente | Bahía Blanca, Argentina · Autónomo",
+      en: "03/2025 - Present | Bahía Blanca, Argentina · Independent",
+    },
+    title: {
+      es: "DocSync (Proyecto propio) - Founder & Full Stack Developer",
+      en: "DocSync (Own Product) - Founder & Full Stack Developer",
+    },
+    description: {
+      es: [
+        "Fundé y desarrollé DocSync, un SaaS de gestión integral de clínicas médicas, hoy en producción en AWS con arquitectura multi-tenant (Row Level Security en PostgreSQL). ERP para salud multiusuario: turnos, profesionales, secretarias y pacientes, con roles diferenciados vía RBAC y auditoría de seguridad.",
+        "Historias Clínicas Electrónicas con exportación PDF individual y múltiple (Prawn). Seguridad production-ready: JWT (access 15 min + refresh 7 días), blacklist vía Solid Cache, rate limiting (Rack::Attack), sanitización HTML y audit logging.",
+        "Chat en tiempo real paciente-secretaria con ActionCable, pagos Stripe (web + mobile) y FAQ Bot integrado con Claude API. App móvil en React Native: autenticación JWT + Google OAuth, HCE, chat en tiempo real y pagos Stripe nativos.",
+        "Deploy en AWS EC2 + Nginx + Puma + PostgreSQL, dominio propio con SSL, CI/CD automático con GitHub Actions y backups semanales a S3. Lanzamiento público: DocSync Mobile alcanzó aprobación de producción en Google Play, con pricing en tres niveles publicado en getdocsync.app.",
+      ],
+      en: [
+        "Founded and built DocSync, a comprehensive medical clinic management SaaS, now live in production on AWS with multi-tenant architecture (PostgreSQL Row Level Security). Healthcare ERP: multi-user system for appointment scheduling, practitioners, front-desk staff, and patients, with role-based access via RBAC and security auditing.",
+        "Electronic Health Records with individual and bulk PDF export (Prawn). Production-ready security: JWT (15-min access + 7-day refresh) with Solid Cache-based blacklist, rate limiting (Rack::Attack), HTML sanitization and audit logging.",
+        "Real-time patient–receptionist chat via ActionCable, Stripe payments (web + mobile) and a FAQ bot powered by the Claude API. React Native mobile app: JWT + Google OAuth authentication, EHR access, real-time chat and native Stripe payments.",
+        "Deployed on AWS EC2 + Nginx + Puma + PostgreSQL, with a custom domain and SSL, automated CI/CD via GitHub Actions and weekly S3 backups. Public launch: DocSync Mobile achieved production approval on Google Play, with three-tier pricing live at getdocsync.app.",
+      ],
+    },
+    link: "https://getdocsync.app",
   },
   {
-    date: "11/2024 - 02/2025 (4 meses) | Remoto",
-    title: "Mecantronic - Backend Developer",
-    description:
-      "Contribuí a 'plan-mi-casa' con backend en FastAPI y MySQL (AWS RDS), y frontend en ReactJS, Redux y MaterialUI, entregando 82 tareas en un equipo Agile. Implementé autónomamente 'monthly-rates' y 'functional-units', y optimicé la gestión de datos con borrado y recuperación de Suscriptores.",
+    date: {
+      es: "04/2026 - 06/2026 (3 meses) | Buenos Aires, Argentina · Remoto · Freelance",
+      en: "04/2026 - 06/2026 (3 months) | Buenos Aires, Argentina · Remote · Freelance",
+    },
+    title: {
+      es: "WTF? Agency - Brief Destroyers - Full Stack Developer",
+      en: "WTF? Agency - Brief Destroyers - Full Stack Developer",
+    },
+    description: {
+      es: [
+        "Colaboré en un dashboard de Business Intelligence SaaS para empresas que venden en Mercado Libre y usan Odoo como ERP, consolidando datos de ventas, stock, pagos y preguntas en un solo panel gerencial. Transformé el MVP de cuenta única en una arquitectura multi-tenant desplegada en Railway, permitiendo que múltiples empresas operen de forma aislada sobre la misma plataforma.",
+        "Desarrollé un bot de Telegram con transcripción de voz vía OpenAI Whisper, permitiendo realizar consultas al sistema mediante mensajes de audio.",
+      ],
+      en: [
+        "Collaborated on a Business Intelligence SaaS dashboard for companies selling on Mercado Libre that use Odoo as their ERP, consolidating sales, stock, payments and customer questions into a single management panel. Transformed the single-account MVP into a multi-tenant architecture deployed on Railway, allowing multiple companies to operate in isolation on the same platform.",
+        "Built a Telegram bot with voice transcription via OpenAI Whisper, enabling voice-message queries to the system.",
+      ],
+    },
   },
   {
-    date: "10/2023 - 11/2023 (2 meses) | Remoto",
-    title: "Thaskify - Full Stack Developer (Prácticas)",
-    description:
-      "Contribuí a una app de gestión de proyectos con tableros Kanban usando Node.js, MongoDB (backend) y React (frontend) en un equipo Agile. Implementé autenticación con JWT y drag-and-drop, optimizando la UX.",
+    date: {
+      es: "03/2026 - 04/2026 (1 mes) | La Plata, Buenos Aires, Argentina · Remoto · Freelance",
+      en: "03/2026 - 04/2026 (1 month) | La Plata, Buenos Aires, Argentina · Remote · Freelance",
+    },
+    title: {
+      es: "DevBout - Full Stack Developer",
+      en: "DevBout - Full Stack Developer",
+    },
+    description: {
+      es: [
+        "Colaboré en el desarrollo de SportFlow, una plataforma SaaS multi-tenant para clubes deportivos (pádel), incorporándome a un proyecto ya iniciado y aportando arquitectura multi-tenant y desarrollo backend.",
+      ],
+      en: [
+        "Contributed to SportFlow, a multi-tenant SaaS platform for sports clubs (padel), joining an already-initiated project and contributing multi-tenant architecture and backend development.",
+      ],
+    },
   },
   {
-    date: "06/2023 - 10/2023 (5 meses) | Remoto",
-    title: "Unión Informática - Machine Learning & Data Analyst Teacher",
-    description:
-      "Impartí clases de Machine Learning y Data Analyst con Python y Google Colab de forma remota.",
+    date: {
+      es: "03/2026 - 04/2026 (1 mes) | La Plata, Buenos Aires, Argentina · Remoto · Freelance",
+      en: "03/2026 - 04/2026 (1 month) | La Plata, Buenos Aires, Argentina · Remote · Freelance",
+    },
+    title: {
+      es: "elatech.io - Full Stack Developer",
+      en: "elatech.io - Full Stack Developer",
+    },
+    description: {
+      es: [
+        "Colaboré en el desarrollo de 'arreglatuti', un SaaS de intermediación de servicios para oficios (plomería, gas, albañilería, carpintería y afines), conectando profesionales con clientes.",
+      ],
+      en: [
+        "Contributed to 'arreglatuti', a service-marketplace SaaS for tradespeople (plumbers, gas technicians, bricklayers, carpenters and related trades), connecting professionals with clients.",
+      ],
+    },
   },
   {
-    date: "02/2022 - 06/2023 (1.4 años) | Remoto",
-    title: "INTI - Tutor y Supervisor de Entorno Virtual (#ArgentinaPrograma)",
-    description:
-      "Trabajé en #YoProgramo, comenzando como Tutor (02/2022 - 08/2022), asesorando a estudiantes en Full Stack Development (Angular, Java Spring, MySQL), y ascendiendo a Supervisor (07/2022 - 06/2023) por mi buen desempeño, gestionando Profesores y Tutores para asegurar la calidad educativa.",
+    date: {
+      es: "03/2026 - 04/2026 (1 mes) | Bahía Blanca, Argentina · Remoto · Freelance",
+      en: "03/2026 - 04/2026 (1 month) | Bahía Blanca, Argentina · Remote · Freelance",
+    },
+    title: {
+      es: "Surtek - Full Stack Developer",
+      en: "Surtek - Full Stack Developer",
+    },
+    description: {
+      es: [
+        "Colaboré en el desarrollo de un sistema de administración integral para Villa Mitre, club deportivo de gran envergadura en Bahía Blanca, actualmente en uso por la institución.",
+        "Arquitectura multi-tenant: disciplinas (gimnasio, pileta) aisladas entre sí dentro del club, sobre una base pensada para comercializarse a otros clubes deportivos. Stack: React.js, MySQL.",
+      ],
+      en: [
+        "Collaborated on a comprehensive management system for Villa Mitre, a large sports club in Bahía Blanca, currently in active use by the institution.",
+        "Multi-tenant architecture: disciplines (gym, pool) isolated from one another within the club, built on a foundation designed to be commercialized to other sports clubs. Stack: React.js, MySQL.",
+      ],
+    },
   },
   {
-    date: "12/2021 - 02/2022 (3 meses) | Remoto",
-    title: "Toyoko LLC - Freelance Frontend Developer",
-    description:
-      "Mejoré la funcionalidad y UX de una página de biotecnología con JavaScript y Django. Configuré un entorno virtual en VSCode y WSL, superando desafíos técnicos para optimizar el desarrollo.",
+    date: {
+      es: "05/2025 - 12/2025 (8 meses) | Buenos Aires, Argentina · Remoto · Contrato",
+      en: "05/2025 - 12/2025 (8 months) | Buenos Aires, Argentina · Remote · Contract",
+    },
+    title: {
+      es: "SOWTIC - IPS RUPA (Sector Gubernamental) - Full Stack Developer",
+      en: "SOWTIC - IPS RUPA (Government Sector) - Full Stack Developer",
+    },
+    description: {
+      es: [
+        "Único desarrollador a cargo del sistema. Diseñé e implementé la API REST completa (Django DRF + PostgreSQL) con RBAC multi-nivel (admin, interno, empleador), filtrado por rol, paginación eficiente sobre millones de registros y exportación masiva vía MinIO.",
+        "La BD original (Adabas D) fue migrada a PostgreSQL por el equipo de DBAs con un schema fijo e inamovible: con 9 de 14 historias ya implementadas sobre BD local, adapté todo el desarrollo al schema definitivo al quedar disponible. Al incorporarse el volumen real de datos (+90 GB), implementé Celery para procesamiento asíncrono y Streaming de respuestas HTTP para garantizar estabilidad bajo carga.",
+        "Migré el frontend completo de plantillas Django/Bootstrap a Next.js 14 (App Router) con Tailwind CSS, Shadcn/ui, Keycloak vía next-auth y Zustand, logrando una mejora significativa en rendimiento, UX y mantenibilidad. Gestioné mi propio ambiente en OKD/OpenShift con Docker, GitLab CI/CD y ArgoCD, coordinando con DevOps y DBAs durante todo el proyecto.",
+        "Entregué 14 historias de usuario + múltiples requerimientos adicionales del cliente 100% a tiempo.",
+      ],
+      en: [
+        "Sole developer responsible for the system. Designed and implemented the full REST API (Django DRF + PostgreSQL) with multi-level RBAC (admin, internal, employer), role-based filtering, efficient pagination over millions of records and bulk data export via MinIO.",
+        "The original database (Adabas D) was migrated to PostgreSQL by the DBA team under a fixed, immovable schema: with 9 of 14 user stories already implemented on a local database, I adapted the entire codebase to the definitive schema once it became available. When the real data volume arrived (90+ GB), I implemented Celery for asynchronous processing and HTTP response streaming to ensure stability under load.",
+        "Migrated the entire frontend from Django/Bootstrap templates to Next.js 14 (App Router) with Tailwind CSS, Shadcn/ui, Keycloak via next-auth and Zustand, achieving a significant improvement in performance, UX and maintainability. Managed my own environment on OKD/OpenShift with Docker, GitLab CI/CD and ArgoCD, coordinating with DevOps and DBAs throughout the project.",
+        "Delivered 14 user stories plus multiple additional client requirements, 100% on time.",
+      ],
+    },
   },
   {
-    date: "03/2017 - 09/2017 (7 meses) | Remoto",
-    title: "anatod - Freelance Software QA Analyst & UX/UI Designer",
-    description: "Asesoré al equipo de QA y UX/UI Design.",
+    date: {
+      es: "2021 - 2025 | Remoto",
+      en: "2021 - 2025 | Remote",
+    },
+    title: {
+      es: "Roles anteriores (Freelance) - MecanTronic · Thaskify · Toyoko LLC · Unión Informática (docente) · INTI · anatod",
+      en: "Previous Roles (Freelance) - MecanTronic · Thaskify · Toyoko LLC · Unión Informática (Instructor) · INTI · anatod",
+    },
+    description: {
+      es: [
+        "MecanTronic (11/2024 - 03/2025): 82 entregas en proyecto React/Redux/MaterialUI ('plan-mi-casa', backend en FastAPI y MySQL sobre AWS RDS); implementé de forma autónoma la feature 'monthly-rates' en un equipo Agile.",
+        "Thaskify (10/2023 - 11/2023): app de gestión de proyectos con tableros Kanban en Node.js, MongoDB y React; autenticación JWT y drag-and-drop.",
+        "Toyoko LLC - Frontend (12/2021 - 02/2022): mejoras de UI en un sitio de biotecnología para un cliente en Berkeley, CA.",
+        "Unión Informática (06/2023 - 10/2023): docencia de Data Analysis con Python y Machine Learning en Google Colab.",
+        "INTI - #ArgentinaPrograma (02/2022 - 06/2023): comencé como Tutor asesorando estudiantes en Full Stack Development (Angular, Java Spring, MySQL) y ascendí a Supervisor, gestionando Profesores y Tutores.",
+        "anatod (03/2017 - 09/2017): asesoría a los equipos de QA y UX/UI Design.",
+      ],
+      en: [
+        "MecanTronic (11/2024 - 03/2025): 82 deliveries on a React/Redux/Material UI project ('plan-mi-casa', backend in FastAPI and MySQL on AWS RDS); independently implemented the 'monthly-rates' feature within an Agile team.",
+        "Thaskify (10/2023 - 11/2023): project management app with Kanban boards in Node.js, MongoDB and React; JWT authentication and drag-and-drop.",
+        "Toyoko LLC - Frontend (12/2021 - 02/2022): UI improvements on a biotechnology site for a client in Berkeley, CA.",
+        "Unión Informática (06/2023 - 10/2023): taught Data Analysis with Python and Machine Learning on Google Colab.",
+        "INTI - #ArgentinaPrograma (02/2022 - 06/2023): started as a Tutor advising students in Full Stack Development (Angular, Java Spring, MySQL) and was promoted to Supervisor, managing Instructors and Tutors.",
+        "anatod (03/2017 - 09/2017): advised the QA and UX/UI Design teams.",
+      ],
+    },
   },
 ];
 ---
